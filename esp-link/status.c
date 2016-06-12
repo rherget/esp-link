@@ -67,9 +67,9 @@ static void ICACHE_FLASH_ATTR ledTimerCb(void *v) {
   int time = 1000;
 
   if (wifiState == wifiGotIP) {
-    // connected, all is good, solid light with a short dark blip every 3 seconds
+    // connected, all is good, light shut down with a short flash every 3 seconds
     ledState = 1-ledState;
-    time = ledState ? 2900 : 100;
+    time = ledState ? 100 : 2900;
   } else if (wifiState == wifiIsConnected) {
     // waiting for DHCP, go on/off every second
     ledState = 1 - ledState;
@@ -82,11 +82,11 @@ static void ICACHE_FLASH_ATTR ledTimerCb(void *v) {
       break;
     case 2: // AP
       ledState = 1-ledState;
-      time = ledState ? 50 : 1950;
+      time = ledState ? 1950 : 50;
       break;
     case 3: // STA+AP
       ledState = 1-ledState;
-      time = ledState ? 50 : 950;
+      time = ledState ? 950 : 50;
       break;
     }
   }

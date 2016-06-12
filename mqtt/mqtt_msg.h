@@ -32,7 +32,7 @@
 #ifndef MQTT_MSG_H
 #define MQTT_MSG_H
 
-#define PROTOCOL_NAMEv311
+#define PROTOCOL_NAMEv31
 
 enum mqtt_message_type {
   MQTT_MSG_TYPE_CONNECT = 1,
